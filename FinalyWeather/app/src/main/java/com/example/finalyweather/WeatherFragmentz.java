@@ -1,5 +1,6 @@
 package com.example.finalyweather;
 
+import android.annotation.SuppressLint;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
@@ -37,11 +38,11 @@ public class WeatherFragmentz extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_first, container, false);
-        cityField = (TextView)rootView.findViewById(R.id.city_field);
-        updatedField = (TextView)rootView.findViewById(R.id.updated_field);
-        detailsField = (TextView)rootView.findViewById(R.id.details_field);
-        currentTemperatureField = (TextView)rootView.findViewById(R.id.current_temperature_field);
-        weatherIcon = (TextView)rootView.findViewById(R.id.weather_icon);
+        cityField = rootView.findViewById(R.id.city_field);
+        updatedField = rootView.findViewById(R.id.updated_field);
+        detailsField = rootView.findViewById(R.id.details_field);
+        currentTemperatureField = rootView.findViewById(R.id.current_temperature_field);
+        weatherIcon = rootView.findViewById(R.id.weather_icon);
 
         weatherIcon.setTypeface(weatherFont);
         return rootView;
@@ -67,11 +68,10 @@ public class WeatherFragmentz extends Fragment {
             }
         }.start();
     }
+    @SuppressLint({"SetTextI18n", "DefaultLocale"})
     private void renderWeather(JSONObject json){
         try {
-            cityField.setText(json.getString("name").toUpperCase(Locale.UK) +
-                    ", " +
-                    json.getJSONObject("sys").getString("country"));
+            cityField.setText(json.getString("name").toUpperCase(Locale.UK) + ", " +  json.getJSONObject("sys").getString("country"));
 
             JSONObject details = json.getJSONArray("weather").getJSONObject(0);
             JSONObject main = json.getJSONObject("main");

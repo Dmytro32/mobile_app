@@ -1,39 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".WeatherFragmentz">
+    tools:context=".MainActivity">
 
 
         <TextView
-            android:height="110dp"
             android:id="@+id/city_field"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:height="210dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            tools:layout_editor_absoluteX="192dp"
+            tools:layout_editor_absoluteY="100dp" />
 
         <TextView
             android:id="@+id/updated_field"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="209dp"
             android:layout_below="@+id/city_field"
             android:layout_centerHorizontal="true"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textSize="13sp" />
+            android:textSize="13sp"
+            tools:layout_editor_absoluteX="192dp"
+            tools:layout_editor_absoluteY="210dp" />
 
         <TextView
             android:id="@+id/weather_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textSize="70sp"
-            />
+            tools:layout_editor_absoluteX="192dp"
+            tools:layout_editor_absoluteY="319dp" />
 
         <TextView
             android:id="@+id/current_temperature_field"
@@ -42,15 +47,18 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="40sp" />
+            android:textSize="40sp"
+            tools:layout_editor_absoluteX="192dp"
+            tools:layout_editor_absoluteY="412dp" />
 
         <TextView
             android:id="@+id/details_field"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="69dp"
             android:layout_below="@+id/weather_icon"
             android:layout_centerHorizontal="true"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            />
+            tools:layout_editor_absoluteX="192dp"
+            tools:layout_editor_absoluteY="465dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
