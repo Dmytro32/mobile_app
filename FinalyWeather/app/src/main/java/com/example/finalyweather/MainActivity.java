@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
                     .add(R.id.container, new WeatherFragmentz())
                     .commit();
         }
+
     }
 
     @Override
@@ -39,11 +40,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void showInputDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Change city");
+        builder.setTitle("Змінити місто");
         final EditText input = new EditText(this);
         input.setInputType(InputType.TYPE_CLASS_TEXT);
         builder.setView(input);
-        builder.setPositiveButton("Go", (dialog, which) -> changeCity(input.getText().toString()));
+        builder.setPositiveButton("Підтвердити", (dialog, which) -> changeCity(input.getText().toString()));
         builder.show();
     }
 

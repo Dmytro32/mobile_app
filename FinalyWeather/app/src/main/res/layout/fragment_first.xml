@@ -6,7 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
+<EditText
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentTop="true"
+    android:layout_centerHorizontal="true"
+    android:height="110dp"
+    android:textAppearance="?android:attr/textAppearanceLarge"
+    tools:layout_editor_absoluteX="192dp"
+    tools:layout_editor_absoluteY="100dp" />
         <TextView
             android:id="@+id/city_field"
             android:layout_width="wrap_content"
@@ -51,14 +59,14 @@
             tools:layout_editor_absoluteX="192dp"
             tools:layout_editor_absoluteY="412dp" />
 
+
         <TextView
             android:id="@+id/details_field"
-            android:layout_width="0dp"
-            android:layout_height="69dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/weather_icon"
             android:layout_centerHorizontal="true"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            tools:layout_editor_absoluteX="192dp"
-            tools:layout_editor_absoluteY="465dp" />
+            />
 
 </RelativeLayout>

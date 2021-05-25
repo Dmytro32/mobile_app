@@ -13,7 +13,7 @@ import java.net.URL;
 public class RemoteFetch {
 
     private static final String OPEN_WEATHER_MAP_API =
-            "http://api.openweathermap.org/data/2.5/weather?q=%s&units=metric";
+            "http://api.openweathermap.org/data/2.5/weather?q=%s&units=metric&lang=ua";
 
     public static JSONObject getJSON(Context context, String city){
         try {
@@ -27,8 +27,7 @@ public class RemoteFetch {
             BufferedReader reader = new BufferedReader(
                     new InputStreamReader(connection.getInputStream()));
 
-            StringBuffer json;
-            json = new StringBuffer(1024);
+            StringBuffer json=new StringBuffer(1024);
             String tmp;
             while((tmp=reader.readLine())!=null) {
                 json.append(tmp).append("\n");

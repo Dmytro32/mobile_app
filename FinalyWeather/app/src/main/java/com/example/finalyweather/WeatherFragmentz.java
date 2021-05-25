@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import org.json.JSONObject;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import android.os.Handler;
@@ -71,16 +72,21 @@ public class WeatherFragmentz extends Fragment {
     @SuppressLint({"SetTextI18n", "DefaultLocale"})
     private void renderWeather(JSONObject json){
         try {
-            cityField.setText(json.getString("name").toUpperCase(Locale.UK) + ", " +  json.getJSONObject("sys").getString("country"));
+            DateFormat format= new SimpleDateFormat("HH:mm");
+            long mytime=10800000;
+            cityField.setText(json.getString("name").toUpperCase(Locale.UK) + ", "  + json.getJSONObject("sys").getString("country")+"\n"+ format.format(new Date().getTime()
+                    +json.getLong("timezone")*1000-mytime));
 
             JSONObject details = json.getJSONArray("weather").getJSONObject(0);
             JSONObject main = json.getJSONObject("main");
-            detailsField.setText(
-                    details.getString("description").toUpperCase(Locale.UK) +
-                            "\n" + "Humidity: " + main.getString("humidity") + "%" +
-                            "\n" + "Pressure: " + main.getString("pressure") + " hPa");
+            JSONObject wind = json.getJSONObject("wind");
 
+            detailsField.setText(
+                    details.getString("description").toUpperCase(Locale.US)+ "\n" + "Вологість: " + main.getString("humidity") + "%"+"\n"
+                            + "Тиск: " + main.getString("pressure") + " hPa"+
+                            "\n"+"Швидкість вітру: " +String.format("%.2f", wind.getDouble("speed"))+ " m/s");
             currentTemperatureField.setText(
+
                     String.format("%.2f", main.getDouble("temp"))+ " ℃");
 
             DateFormat df = DateFormat.getDateTimeInstance();
@@ -92,7 +98,7 @@ public class WeatherFragmentz extends Fragment {
                     json.getJSONObject("sys").getLong("sunset") * 1000);
 
         }catch(Exception e){
-            Log.e("SimpleWeather", "One or more fields not found in the JSON data");
+            Log.e("finalyweather", "Один обо декілька JSON файлів не знайдено");
         }
     }
     private void setWeatherIcon(int actualId, long sunrise, long sunset){
